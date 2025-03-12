@@ -20,8 +20,12 @@ contract MoneyTest is Test {
         vm.stopPrank();
     }
 
-    function testTokenSymbolName() public {
-        assertEq(money.name(), "$MONEY$");
-        assertEq(money.symbol(), "$$$");
+    function testTokenSymbolName() public view {
+        assertEq("$MONEY$", money.name(), "Le nom du token est mal initialise");
+        assertEq(
+            "$$$",
+            money.symbol(),
+            "Le symbole du token est mal initialise"
+        );
     }
 }
