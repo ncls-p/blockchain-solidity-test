@@ -15,8 +15,13 @@ contract MoneyTest is Test {
         // On utilise de force l'adresse de l'admin
         vm.startPrank(admin);
 
-        money = new Money(); // on déploie le contrat
+        money = new Money("$MONEY$", "$$$"); // on déploie le contrat
 
         vm.stopPrank();
+    }
+
+    function testTokenSymbolName() public {
+        assertEq(money.name(), "$MONEY$");
+        assertEq(money.symbol(), "$$$");
     }
 }
