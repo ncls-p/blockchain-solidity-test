@@ -7,7 +7,7 @@ import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
 // Contracts
 
-contract IABD2 is ERC20, Ownable {
+contract Money is ERC20, Ownable {
     // Types
 
     //Attributs
