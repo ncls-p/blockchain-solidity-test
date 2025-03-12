@@ -28,4 +28,19 @@ contract MoneyTest is Test {
             "Le symbole du token est mal initialise"
         );
     }
+    
+    /// Test to verify that only admin can mint 1000 tokens
+    function testOnlyAdminCanMint1000() public {
+        
+        vm.startPrank(admin);
+        money.mint(admin, 1000);
+        vm.stopPrank();
+
+        vm.startPrank(user);
+        money.mint(user, 1000);
+        vm.stopPrank();
+
+        assertEq(money.balanceOf(admin), 1000, "Admin balance should be 1000");
+        assertEq(money.balanceOf(user), 0, "User balance should be 0");
+    }
 }
